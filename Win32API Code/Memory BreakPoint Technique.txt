@@ -1,0 +1,16 @@
+Memory BreakPoint Technique
+
+//Declare the SYSTEM_INFO Struct variable 
+//Declare the MEMORY_BASIC_INFORMATION struct variable
+//Use the GetSystemInfo() to secure information about the current system 
+//Create variable of type DWORD to hold the value of the Page size of the system
+
+SYSTEM_INFO SysInfo;
+MEMORY_BASIC_INFORMATION mbi;
+DWORD DefaultPageSize;
+ZeroMemory(&SysInfo, sizeof(SYSTEM_INFO));
+DefaultPageSize = SysInfo.dwPageSize;
+
+//Begin Querying all the memory pages of the target Process 
+//Change the permissions of any memory pages in question (set them to guard pagein our case)
+//Change the permissions of any memory pages in general
